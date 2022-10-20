@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MaddysHotReloadFails.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrl="clr-namespace:MaddysHotReloadFails.Control">
+    <Grid
+        Padding="20"
+        RowDefinitions="*, Auto, *"
+        RowSpacing="20">
+
+        <ctrl:InputTextField
+            VerticalOptions="End"
+            Placeholder="Username"/>
+        <ctrl:InputTextField
+            Grid.Row="1"
+            IsPassword="True"
+            Placeholder="Password"/>
+
+        <!--
+        <Entry Placeholder="Username" VerticalOptions="End" />
+        <Entry
+            Grid.Row="1"
+            IsPassword="True"
+            Placeholder="Password" />
+        -->
+        
+        <Button
+            Grid.Row="2"
+            HeightRequest="60"
+            Text="Do not press"
+            VerticalOptions="Start" />
+    </Grid>
+</ContentPage>

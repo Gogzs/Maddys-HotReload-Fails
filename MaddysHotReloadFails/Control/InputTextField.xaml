@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Frame
+    x:Class="MaddysHotReloadFails.Control.InputTextField"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="this"
+    Padding="0"
+    CornerRadius="2"
+    HeightRequest="65">
+    <Grid ColumnDefinitions="Auto,*" RowDefinitions="*,Auto">
+        <Grid.Triggers>
+            <DataTrigger
+                Binding="{Binding IsInputEnabled, Source={x:Reference this}}"
+                TargetType="Grid"
+                Value="True">
+                <Setter Property="Opacity" Value="1" />
+            </DataTrigger>
+
+            <DataTrigger
+                Binding="{Binding IsInputEnabled, Source={x:Reference this}}"
+                TargetType="Grid"
+                Value="False">
+                <Setter Property="Opacity" Value="0.5" />
+            </DataTrigger>
+        </Grid.Triggers>
+
+        <Image
+            Margin="10"
+            HeightRequest="30"
+            Source="{Binding Icon, Source={x:Reference this}}"
+            VerticalOptions="Center"
+            WidthRequest="30" />
+
+        <Entry
+            x:Name="EntryField"
+            Grid.Column="1"
+            Margin="0,0,0,-5"
+            Background="White"
+            Focused="Entry_Focused"
+            FontSize="16"
+            IsEnabled="{Binding IsInputEnabled, Source={x:Reference this}}"
+            IsPassword="{Binding IsPassword, Source={x:Reference this}}"
+            Keyboard="{Binding KeyboardType, Source={x:Reference this}}"
+            Text="{Binding Text, Source={x:Reference this}}"
+            Unfocused="Entry_Unfocused"
+            VerticalOptions="End" />
+
+        <Label
+            x:Name="LabelPlaceholder"
+            Grid.Column="1"
+            FontSize="16"
+            Text="{Binding Placeholder, Source={x:Reference this}}"
+            VerticalOptions="Center" />
+
+        <Border
+            x:Name="BorderBottomStroke"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Background="{StaticResource ColorSecondary}"
+            HeightRequest="4"
+            HorizontalOptions="Fill"
+            Margin="-3,0"
+            Padding="0"
+            Stroke="{StaticResource ColorSecondary}"
+            StrokeThickness="2"
+            TranslationY="1">
+            <Border.StrokeShape>
+                <Rectangle />
+            </Border.StrokeShape>
+        </Border>
+    </Grid>
+</Frame>
